@@ -1,0 +1,48 @@
+extends layout
+
+block head
+  script(src='/javascripts/markdown.js')
+
+block content
+  span.subhead Blog view
+  a.button.topButtom(href='../list') Bloglist
+  br
+  span.blogBigTitle #{blogInfo.title}
+  article#article
+  br
+  .buttomPos
+    a.button(href='../update/#{blogInfo._id}') Edit
+    a.button(href='../delete/#{blogInfo._id}' onclick='return confirm("Confirm")') Delete
+
+  script.
+    Function.prototype.getMultiLine = function() {
+        var lines = new String(this);
+        lines = lines.substring(lines.indexOf('/*') + 2, lines.lastIndexOf('*/'));
+        return lines;
+    }
+    var preString = function() {
+        /*
+        #{blogInfo.text}
+        */
+    }
+    document.getElementById('article').innerHTML = markdown.toHTML(preString.getMultiLine());
+
+block additional
+  .comment
+    .ribbon
+    span.commTitle Comment
+    ul.commUl
+      if blogInfo.comments
+        each comment in blogInfo.comments
+          li.commlist
+            span.commUser #{comment.username}
+            span.commtime #{comment.time}
+            p.commText #{comment.comment}
+
+    form(action='/blogs/comment' method='post')
+      input(type='hidden', name='blogID', value='#{blogInfo._id}')
+      input.inputText(type='text', placeholder='Your name', name='username', required)
+      textarea.inputText(rows='5', name='comment', required, placeholder='Comment')
+      .buttomPos
+        button.button(type='submit') Submit
+        button.button(type='reset') Reset

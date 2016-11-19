@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  span.subhead Edit blog
+  form(action='/blogs/update' method='post')
+    input(style='display:none', name='blogID', value='#{blogInfo._id}')
+    input.inputText(type='text', name='title', required, value='#{blogInfo.title}')
+    textarea.inputText(rows='17', name='text', required) #{blogInfo.text}
+    br
+    .buttomPos
+      button.button(type='submit') Update
+      a.button(href='../list') Cancel

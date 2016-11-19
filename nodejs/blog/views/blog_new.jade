@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  span.subhead Create a new blog
+  form(action='/blogs/create' method='post')
+    input.inputText(type='text', placeholder='Post Title', name='title', required)
+    textarea.inputText(rows='17', name='text', required, placeholder='Add your Markdown here')
+    br
+    .buttomPos
+      button.button(type='submit') Create post
+      a.button(href='list') Cancel

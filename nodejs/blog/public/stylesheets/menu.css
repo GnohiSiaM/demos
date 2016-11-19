@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* CSS Document */
+@-webkit-keyframes colorcycle {
+  0% { background-color: slategray; }
+  50% { background-color: #5F8CFF; }
+  100% { background-color: firebrick; }
+}
+@-ms-keyframes colorcycle {
+  0% { background-color: slategray; }
+  50% { background-color: #5F8CFF; }
+  100% { background-color: firebrick; }
+}
+@keyframes colorcycle {
+  0% { background-color: slategray; }
+  50% { background-color: #5F8CFF; }
+  100% { background-color: firebrick; }
+}
+
+.circle {
+  z-index: 1;
+  position: fixed;
+  top: 5em;
+  left: 5em;
+  width: 7em;
+  height: 7em;
+  padding: 1.5em 0em;
+  background-image: linear-gradient(transparent, rgba(0,0,0,.3));
+  color: white;
+  line-height: 1;
+  font-size: 120%;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: .08em .08em .2em rgba(0,0,0,.6);
+
+  border-radius: 50%;
+  box-shadow: .1em .2em .4em -.2em black;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-animation: 4s colorcycle infinite alternate;
+  -ms-animation: 4s colorcycle infinite alternate;
+  animation: 4s colorcycle infinite alternate;
+  -webkit-transition: left 1.6s,top 1.6s;
+  -ms-transition: left 1.6s,top 1.6s;
+  transition: left 1.6s,top 1.6s;
+}
+.circle:hover {
+  -webkit-transform: rotate(345deg);
+  -ms-transform: rotate(345deg);
+  transform: rotate(345deg);
+  -webkit-transition: -webkit-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  transition: transform 2s;
+}
+.circle > strong {
+  display: block;
+  margin: 0.3em 0;
+  font-size: 120%;
+  white-space: nowrap;
+}
+.circle:after {
+  content: attr(title) ' →';
+  position: absolute;
+  top: 12em;
+  right: 50%;
+  color: slategray;
+  font-size: 80%;
+  text-shadow: 0 1px white;
+  white-space: nowrap;
+  -webkit-transform: rotate(285deg);
+  -ms-transform: rotate(285deg);
+  transform: rotate(285deg);
+}
+.circle:hover:after {
+  display: none;
+}
+
+.dropDowm {
+  position: fixed;
+  z-index: 1;
+  list-style: none;
+  text-align: center;
+  width: 120px;
+  top: 12.6em;
+  left: 5.4em;
+  padding: 0;
+  margin: 0;
+  font: bold 15px sans-serif;
+
+  /* This is important for the show/hide CSS animation */
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: max-height .8s linear;
+  -moz-transition: max-height .8s linear;
+  transition: max-height .8s linear;
+}
+.dropDowm li {
+  background-color: #515151;
+  float: none;
+}
+.dropDowm li a {
+  color: #fff !important;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+}
+/* zebra stripes */
+.dropDowm li:nth-child(odd) {
+  background-color: #3C3C3C;
+}
+.dropDowm li:hover {
+  background-color: #3EAFFA;
+}
+.dropDowm li:first-child {
+  border-radius: 3px 3px 0 0;
+  margin-top: 25px;
+  position: relative;
+}
+/* the pointer tip */
+.dropDowm li:first-child:before {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: 5px solid transparent;
+  border-bottom-color: #515151;
+  left: 50%;
+  top: -10px;
+  margin-left: -5px;
+}
+.dropDowm li:last-child {
+  border-radius: 0 0 3px 3px;
+}
+.dropDowm ul li:only-child {
+  border-radius: 3px;
+}
+/* This will trigger the CSS */
+/* transition animation on hover */
+.menu:hover .dropDowm {
+  /* Increase when adding more dropdown items */
+  max-height: 160px;
+}
+
+@media screen and (max-width: 1150px) {
+  .circle {
+    top: -3.6em;
+    left: -3.6em;
+    color: transparent;
+    text-shadow: none;
+  }
+  .circle:after {
+    display: none;
+  }
+  .dropDowm {
+    top: 0em;
+    left: 2em;
+    z-index: 0;
+    opacity: 0;
+    max-height: 0;
+    -webkit-transition: opacity .8s ease-in;
+    -moz-transition: opacity .8s ease-in;
+    transition: opacity .8s ease-in;
+  }
+  .menu:hover .dropDowm {
+    opacity: 1;
+  }
+  .dropDowm li:first-child:before {
+    display: none;
+  }
+}

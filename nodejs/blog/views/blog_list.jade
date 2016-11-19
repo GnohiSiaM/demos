@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  span.subhead Blog list
+  a.button.topButtom(href='new') New blogpost
+  ul(style='padding:10px; margin:0;')
+    li.liHeader.bloglist
+      span.blogTitle title
+      span.blogText text
+    each doc in list
+      li.bloglist
+        a(href='detial/#{doc._id}')
+          span.blogTitle #{doc.title}
+        span.blogText #{doc.text}

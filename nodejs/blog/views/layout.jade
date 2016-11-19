@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/menu.css')
+    block head
+  body
+    div#content.shadow
+      block content
+
+    block additional
+
+    .menu
+      a(href='/', title='Here is menu').circle
+        | Jim's
+        strong Simple
+        | Blog
+      ul.dropDowm
+        li
+          a(href='/') Index
+        li
+          a(href='/blogs/list') Bloglist
+        li
+          a(href='/blogs/new') New
+        li
+          a(href='javascript:history.back()') Back
