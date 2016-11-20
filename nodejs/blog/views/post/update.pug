@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  span.subHead Edit Post
+  form(method='post')
+    input.inputText(type='text', name='title', required, value=post.title)
+    textarea.inputText(rows='17', name='content', required) #{post.content}
+    br
+    .buttomBar
+      button.button(type='submit') Update
+      a.button(href='javascript:history.back()') Cancel

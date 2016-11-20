@@ -24,7 +24,9 @@
         $ git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions
         $ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
         $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
         # 编辑 ~/.zshrc: plugins=(... zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+
         # 激活插件
         $ source ~/.zshrc
         ```

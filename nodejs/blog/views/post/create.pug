@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  span.subHead Create A New Post
+  form(action='./' method='post')
+    input.inputText(type='text', name='title', required, placeholder='Title')
+    textarea.inputText(rows='17', name='content', required, placeholder='Add your content here, Markdown is supported.')
+    br
+    .buttomBar
+      button.button(type='submit') Create
+      a.button(href='javascript:history.back()') Cancel

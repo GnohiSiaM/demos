@@ -9,27 +9,37 @@ CommentSchema = new Schema(
     type: String
     required: true
 
-  comment:
+  content:
     type: String
     required: true
 
-  time:
+  createdAt:
     type: String
     required: true
     default: Date.now
 )
 
-BlogSchema = new Schema(
+PostSchema = new Schema(
   title:
     type: String
     required: true
 
-  text:
+  content:
     type: String
     required: true
+
+  createdAt:
+    type: String
+    required: true
+    default: Date.now
+
+  updatedAt:
+    type: String
+    required: true
+    default: Date.now
 
   comments:
     type: [CommentSchema]
 )
 
-module.exports = mongoose.model('blogs', BlogSchema)
+module.exports = mongoose.model('post', PostSchema)

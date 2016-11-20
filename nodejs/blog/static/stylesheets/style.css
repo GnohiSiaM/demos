@@ -1,23 +1,26 @@
 body {
-  background: url('../images/bg.png');
+  background: url('../images/background.png');
   padding: 36px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 .welcome {
-  font-size: 120px;
   color: #16BAFA;
   text-align: center;
-  font-weight: 700;
+  font-size: 120px;
+  line-height: 130px;
+  font-weight: 900;
   text-shadow: .02em .02em 0 rgb(255, 255, 255), .05em .03em 0 rgb(102, 102, 102);
 }
 
 #content {
   width: 700px;
   height: auto;
+  min-height: 300px;
   padding: 20px;
   margin: 0 auto;
   border-radius: 0 0 4px 4px;
-  background: #fff url('../images/bg-dot.png') repeat-x 6px top;
+  background: #fff url('../images/dot.png') repeat-x 6px top;
 }
 
 .shadow {
@@ -42,7 +45,7 @@ body {
   transform: rotate(-2deg);
 }
 
-.subhead {
+.subHead {
   position: relative;
   border-color: #53A1DF !important;
   border-radius: 0px 6px 6px 0px;
@@ -56,7 +59,7 @@ body {
   top: 0px;
   box-shadow: 2px 3px 6px #AFAFAF;
 }
-.subhead::after {
+.subHead::after {
   position: absolute;
   content: "";
   top: 100%;
@@ -66,7 +69,7 @@ body {
   border-top-color: inherit;
 }
 
-.blogBigTitle{
+.bigTitle {
   text-align: center;
   text-shadow: 0 1px 2px #AAA;
   color: #41B3F3;
@@ -75,28 +78,39 @@ body {
   width: 100%;
   display: inline-block;
 }
-.blogTitle {
-  width: 160px;
+.postTitle {
+  width: 150px;
+  padding-right: 10px;
   display: inline-block;
   word-break: break-word;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.blogText {
+.postContent {
+  width: 340px;
+  padding-right: 10px;
   display: inline-block;
-  width: 460px;
   word-break: break-word;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.postUpdated {
+  width: 150px;
+  display: inline-block;
+  word-break: break-word;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: right;
 }
 
 .topButtom {
   float: right;
   margin-top: 23px !important;
 }
-.buttomPos {
+.buttomBar {
   width: 100%;
   text-align: center;
 }
@@ -113,9 +127,9 @@ textarea{
   border-radius: 4px 4px 0 0;
   border: 1px #E7E7E7 solid;
   border-bottom: none;
-  background: #fff url('../images/bg-tria.jpg') repeat-x 6px bottom;
+  background: #fff url('../images/tria.jpg') repeat-x 6px bottom;
 }
-.commTitle{
+.commentTitle{
   border-top: 4px solid #44CAFF;
   font-size: 23px;
   display: inline-block;
@@ -142,7 +156,7 @@ textarea{
   box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
 }
 
-.commlist {
+.commentLI {
   border-bottom: 1px dashed #c2c2c2;
   padding: 6px 20px;
   margin: 0 12px;
@@ -150,12 +164,12 @@ textarea{
   color: #696969;
   text-shadow: 0px 1px 1px #D1D1D1;
 }
-.commlist:first-child{
+.commentLI:first-child {
   border-top: 2px solid #c2c2c2;
   padding-top: 20px;
   margin-top: 10px;
 }
-.commlist:first-child:before {
+.commentLI:first-child:before {
     content: "";
     position: absolute;
     left: 78px;
@@ -164,7 +178,7 @@ textarea{
     border-top: 8px solid;
     border-top-color: inherit;
 }
-.commlist:first-child:after {
+.commentLI:first-child:after {
     content: "";
     position: absolute;
     left: 78px;
@@ -173,22 +187,22 @@ textarea{
     border-top: 8px solid;
     border-top-color: #fff;
 }
-.commUser {
+.commentUser {
   color: #0BB5F8;
   font-weight: bold;
   font-size: 18px;
 }
-.commtime {
+.commentCreatedAt {
   margin-left: 20px;
   color: #FFFFFF;
   background: #94D6FF;
   border-radius: 4px;
   padding: 1px 5px;
 }
-.commText {
+.commentContent {
   margin: 8px 0 2px;
 }
-.commUl {
+.commentUL {
   padding: 0;
   margin-top: 0;
 }
@@ -198,18 +212,18 @@ a {
   text-decoration: none;
 }
 
-.liHeader {
+.HeaderLI {
   font-weight: bold;
   border-bottom: 2px solid #c2c2c2 !important;
 }
-.bloglist {
+.postLI {
   border-bottom: 1px dashed #c2c2c2;
-  padding: 6px 20px;
+  padding: 6px 10px;
   list-style: none;
   color: #696969;
   text-shadow: 0px 1px 1px #D1D1D1;
 }
-.bloglist:last-child {
+.postLI:last-child {
   border-bottom: 0px;
 }
 

@@ -1,7 +1,9 @@
 # Node.js
 
 ## 安装
+
 3M 安装法:
+
 - [mvn (Node Version Manager)](https://github.com/creationix/nvm)：解决多版本共存、切换问题
 - [npm (Node Package Manager)](https://github.com/npm/npm)：解决 Node.js 模块安装问题，其本身也是一个 Node.js 模块
 - [nrm (Npm Registry Manager)](https://github.com/Pana/nrm)：解决 npm 镜像访问慢的问题，提供测速，切换 registry 功能
@@ -23,7 +25,8 @@ $ nrm use taobao
 ```
 
 ##  Hello World
-编写 `example.js` 文件:
+
+1. 编写 `example.js` 文件:
 
 ```js
 const http = require('http');
@@ -42,7 +45,7 @@ server.listen(port, hostname, () => {
 });
 ```
 
- 运行:
+2. 运行:
 
 ```sh
 node example.js

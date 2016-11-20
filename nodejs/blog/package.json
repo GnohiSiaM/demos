@@ -1,18 +1,18 @@
 {
-  "name": "anExpressBlog",
+  "name": "blog",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "~4.2.0",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "body-parser": "~1.0.0",
-    "debug": "~0.7.4",
-    "jade": "~1.3.0",
-    "bluebird": "~2.2.2",
-    "mongoose": "~3.8.12",
-    "coffee-script": "~1.7.1"
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "coffee-script": "^1.11.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.3.2",
+    "express": "^4.14.0",
+    "moment": "^2.16.0",
+    "mongoose": "^4.6.8",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-beta6"
   },
   "scripts": {
     "start": "coffee ./bin/www.coffee"

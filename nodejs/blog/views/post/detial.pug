@@ -1,0 +1,48 @@
+extends ../layout
+
+block head
+  script(src='/javascripts/markdown.js')
+
+block content
+  span.subHead Post Detail
+  a.button.topButtom(href='./') List
+  br
+  span.bigTitle #{post.title}
+  article#article
+  br
+  .buttomBar
+    a.button(href=post._id + '/update') Edit
+    a.button(href=post._id + '/delete' onclick='return confirm("Confirm")') Delete
+
+  script.
+    Function.prototype.getMultiLine = function() {
+        var lines = new String(this);
+        lines = lines.substring(lines.indexOf('/*') + 2, lines.lastIndexOf('*/'));
+        return lines;
+    }
+    var preString = function() {
+        /*
+        #{post.content}
+        */
+    }
+    document.getElementById('article').innerHTML = markdown.toHTML(preString.getMultiLine());
+
+block additional
+  .comment
+    .ribbon
+    span.commentTitle Comment
+    ul.commentUL
+      if post.comments
+        each comment in post.comments
+          - var createdAt = new Date(parseFloat(comment.createdAt)).toLocaleString()
+          li.commentLI
+            span.commentUser #{comment.username}
+            span.commentCreatedAt #{createdAt}
+            p.commentContent #{comment.content}
+
+    form(action=post._id + '/comments' method='post')
+      input.inputText(type='text', name='username', required, placeholder='Your name')
+      textarea.inputText(rows='5', name='content', required, placeholder='Comment')
+      .buttomBar
+        button.button(type='submit') Submit
+        button.button(type='reset') Reset

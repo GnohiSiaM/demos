@@ -93,9 +93,9 @@
   /* This is important for the show/hide CSS animation */
   max-height: 0px;
   overflow: hidden;
-  -webkit-transition: max-height .8s linear;
-  -moz-transition: max-height .8s linear;
-  transition: max-height .8s linear;
+  -webkit-transition: max-height .5s linear;
+  -moz-transition: max-height .5s linear;
+  transition: max-height .5s linear;
 }
 .dropDowm li {
   background-color: #515151;

@@ -1,11 +1,8 @@
 'use strict'
 
-express = require('express')
+router = require('express').Router()
 
-router = express.Router()
-
-# Get home page.
 router.get '/', (req, res) ->
-  res.render 'index', title: 'A simple blog'
+  res.render 'index', title: 'A Blog Demo'
 
 module.exports = router

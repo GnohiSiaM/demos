@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  span.subHead Posts
+  a.button.topButtom(href='/posts/create') New Post
+  ul(style='padding:10px; margin:0;')
+    li.HeaderLI.postLI
+      span.postTitle title
+      span.postContent content
+      span.postUpdated updated
+    each post in posts
+      - var updatedAt = new Date(parseFloat(post.updatedAt)).toLocaleString()
+      li.postLI
+        a(href='/posts/' + post._id)
+          span.postTitle #{post.title}
+        span.postContent #{post.content}
+        span.postUpdated #{updatedAt}
