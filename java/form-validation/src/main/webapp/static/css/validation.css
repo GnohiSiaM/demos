@@ -1,0 +1,392 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*-------------------------
+    带倒影及特效的主标题
+--------------------------*/
+.mainTitle {
+    cursor: default;
+    text-align: center;
+    margin: 7px auto 16px;
+    background: -webkit-linear-gradient(top, rgba(246, 245, 255, 1) 0%,rgba(105, 144, 245, 1) 50%,rgba(14, 40, 143, 1) 100%);
+    -webkit-box-reflect: below -5px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.2, transparent), to(rgba(3,3,3,.1)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    transition: .5s;
+    text-shadow: 0 1px 1px rgba(117, 160, 214, 0.7);
+    color: rgba(113, 202, 237, 1);
+}
+
+/*-------------------------
+    带背景的立体副标题
+--------------------------*/
+.subhead {
+    position: relative;
+    border-color: #1AB8F3 !important;
+    border-radius: 0px 6px 6px 0px;
+    background-color: #6ECFF5 !important;
+    color: #FFFFFF !important;
+    display: inline-block;
+    padding: 7px 30px;
+    left: -46px;
+    top: 0px;
+    box-shadow: 2px 3px 6px #AFAFAF;
+}
+.subhead::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0%;
+    border: 0.5em solid transparent;
+    border-right-color: inherit;
+    border-top-color: inherit;
+}
+.subhead a {
+    text-decoration: none;
+    color: #FFF;
+}
+.subhead a:hover {
+    text-shadow: 0px 2px 8px #808080;
+    /*opacity: 0.8;*/
+}
+
+/*-------------------------
+            输入框
+--------------------------*/
+.line {
+    padding: 5px 0;
+    display: table;
+    white-space: nowrap;
+}
+.labelText {
+    cursor: pointer;
+    display: table-cell;
+    width: 70px;
+    height: 34px;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    color: #666;
+    background:#EEE;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-right: 0;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.inputText {
+    padding: 0 6px;
+    width: 360px;
+    height: 34px;
+    /*line-height: 34px;*/
+    font-size: 15px;
+    color: #888;
+    background: #FEFEFE;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.inputText:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+}
+
+/*-------------------------
+            提示框
+--------------------------*/
+.tips {
+    cursor: pointer;
+    position: relative;
+    padding: 7px 8px 7px 32px;
+    /*display: table-cell;*/
+    margin-left: 20px;
+    vertical-align: middle;
+    font-size: 15px;
+    border: 1px solid;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 60px;
+}
+/*使用伪元素生成的提示箭头*/
+.tips:before, .tips:after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 10px solid;
+}
+.tips:before {
+    left: -10.6px;
+    border-right-color: inherit;
+}
+.tips:after {
+    left: -9.6px;
+    border-right-color: #fafafa;
+}
+/*使用字符"◆"生成的提示箭头，需要在提示框前加<span class="square"></span>
+.square{
+    display: table-cell;
+    width: 16px;
+    vertical-align: middle;
+}
+.square:before{
+    content: "◆";
+    margin-left: 7px;
+    margin-top: -10px;
+    font-size: 19px;
+    font-family: "SimSun";
+    color: #CCC;
+    position: absolute;
+}
+.square:after{
+    content: "◆";
+    margin-left: 8px;
+    margin-top: -10px;
+    font-size: 19px;
+    font-family: "SimSun";
+    color: #fafafa;
+    position: absolute;
+}*/
+.status1 {
+    color: rgb(178, 176, 177);
+    border-color: rgb(178, 176, 177);
+    background: url("../image/status1.png") no-repeat;
+    background-position: 8px center;
+/*    background-size: 19px 19px;        */
+}
+.status2 {
+    color: rgb(92, 203, 232);
+    border-color: rgb(92, 203, 232);
+    background: url("../image/status2.png") no-repeat;
+    background-position: 8px center;
+}
+.status3 {
+    color: rgb(233, 85, 162);
+    border-color: rgb(233, 85, 162);
+    background: url("../image/status3.png") no-repeat;
+    background-position: 8px center;
+}
+.status4 {
+    color: rgb(11, 216, 142);
+    border-color: rgb(11, 216, 142);
+    background: url("../image/status4.png") no-repeat;
+    background-position: 8px center;
+}
+.status4I {
+    color: rgb(221, 148, 148);
+    border-color: rgb(221, 148, 148);
+    background: url("../image/status4I.png") no-repeat;
+    background-position: 8px center;
+}
+.status4II {
+    color: rgb(230, 179, 102);
+    border-color: rgb(230, 179, 102);
+    background: url("../image/status4II.png") no-repeat;
+    background-position: 8px center;
+}
+.status4III {
+    color: rgb(207, 235, 7);
+    border-color: rgb(207, 235, 7);
+    background: url("../image/status4III.png") no-repeat;
+    background-position: 8px center;
+}
+.status4IV {
+    color: rgb(126, 236, 105);
+    border-color: rgb(126, 236, 105);
+    background: url("../image/status4IV.png") no-repeat;
+    background-position: 8px center;
+}
+
+/*-------------------------
+        注册按钮
+--------------------------*/
+.disabled {
+    padding: 5px 12px;
+    color: #999;
+    background: #f0f0f0;
+    border-radius: 6px;
+    border: 1px solid #b9b9b9;
+}
+.enabled {
+    padding: 5px 12px;
+    color: #ffffff;
+    background: #3fa156;
+    border-radius: 6px;
+    border: 1px solid #528641;
+}
+
+.link{
+    text-decoration: none;
+    color: #3587F0;
+}
+
+/*-------------------------
+    背景特效（径向渐变）
+--------------------------*/
+.bg {
+    background: -webkit-radial-gradient(50% 10%, transparent 35%, #505050) no-repeat;
+    background: -moz-radial-gradient(50% 10%, transparent 35%, #505050) no-repeat;
+    background: -ms-radial-gradient(50% 10%, transparent 35%, #505050) no-repeat;
+    background: -o-radial-gradient(50% 10%, transparent 35%, #505050) no-repeat;
+    opacity: 0.50;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -999;
+}
+
+/*-------------------------
+        表单盒子
+--------------------------*/
+.box {
+    padding: 15px 30px 10px;
+    width: 700px;
+    min-width: 500px;
+    margin: 40px auto 30px;
+    background: #fafafa;
+    border-radius: 4px;
+}
+/*使用伪元素生成的底部立体阴影*/
+.shadow {
+    position: relative;
+    /*max-width: 730px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.3), 0px 0px 10px rgba(0,0,0,0.1) inset;*/
+}
+.shadow::before, .shadow::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 15px;
+    width: 50%;
+    height: 20%;
+   -webkit-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 15px 10px rgba(0,0,0,0.7);
+}
+.shadow::after {
+    right: 8px;
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    transform: rotate(2deg);
+ }
+.shadow::before {
+    left: 8px;
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+}
+
+/*-------------------------
+        透明胶带效果
+--------------------------*/
+.ribbon {
+    position: absolute;
+    top: 5em;
+    right: -6.7em;
+    width: 160px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.1);
+    background: -webkit-gradient(linear, 555% 20%, 0% 92%, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.0)), color-stop(.1,rgba(0, 0, 0, 0.2)));
+    background: -webkit-linear-gradient(555% 0 180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.0));
+    background: -moz-linear-gradient(555% 0% 180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.0));
+    background: -o-linear-gradient(555% 0 180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.0));
+    border-left: 1px dashed rgba(0, 0, 0, 0.1);
+    border-right: 1px dashed rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+    -webkit-transform: rotate(36deg) skew(0,0) translate(-60%,-5px);
+    -moz-transform: rotate(36deg) skew(0,0) translate(-60%,-5px);
+    -o-transform: rotate(36deg) skew(0,0) translate(-60%,-5px);
+    transform: rotate(36deg) skew(0,0) translate(-60%,-5px);
+}
+
+
+/*************************************************/
+/*********************响应式设计*******************/
+/*************************************************/
+@media screen and (max-width: 800px) {
+    /*当屏幕尺寸小于800px时，应用下面的CSS样式*/
+    .mainTitle {
+        margin: 7px auto 12px;
+        font-size: 21px;
+        text-shadow: 0 1px 1px rgba(117, 160, 214, 0.7);
+        color: rgba(113, 202, 237, 1);
+    }
+    .ribbon {
+        display: none;
+    }
+    .box {
+        padding: 10px 30px;
+        width: 500px;
+        margin: 20px auto 20px;
+    }
+    .tips {
+        padding: 5px 12px 5px 32px;
+        display: inline-block;
+        margin-left: 184px;
+        width: 200px;
+        font-size: 15px;
+        border-radius: 12px 30px 30px 12px;
+        text-align: center;
+        top: 5px;
+    }
+    .tips:before {
+        left: 0.8em;
+        top: -16.5px;
+        border-left: 0.4em solid transparent;
+        border-right: 0.4em solid transparent;
+        border-bottom: 0.5em solid;
+        border-bottom-color: inherit;
+        }
+    .tips:after {
+        left: 0.8em;
+        top: -15.5px;
+        border-left: 0.4em solid transparent;
+        border-right: 0.4em solid transparent;
+        border-bottom: 0.5em solid;
+        border-bottom-color: #fafafa;
+        }
+    .line {
+        margin: 0 25px 12px;
+        padding: 0px;
+        white-space: normal;
+    }
+    .labelText {
+        float: left;
+        height: 34px;
+        line-height: 34px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    /* @-moz-document url-prefix(){.labelText{height:32px; line-height:32px;}} */    /*火狐hack*/
+    .status1 {
+        display: none;
+    }
+    .status4 {
+        opacity: 0;
+        font-size: 0;
+        padding: 0;
+        -webkit-transition: opacity 1s cubic-bezier(0.6,0.3,1,1), padding 0s 1s, font-size 0s 1s;
+        -ms-transition: opacity 1s cubic-bezier(0.6,0.3,1,1), padding 0s 1s, font-size 0s 1s;
+        transition: opacity 1s cubic-bezier(0.6,0.3,1,1), padding 0s 1s, font-size 0s 1s;
+    }
+    .status4I, .status4II, .status4III, .status4IV {
+        opacity: 0;
+        font-size: 0;
+        padding: 0;
+        -webkit-transition: opacity 5s cubic-bezier(1,0.3,1,1), padding 0s 5s, font-size 0s 5s;
+        -ms-transition: opacity 5s cubic-bezier(1,0.3,1,1), padding 0s 5s, font-size 0s 5s;
+        transition: opacity 5s cubic-bezier(1,0.3,1,1), padding 0s 5s, font-size 0s 5s;
+    }
+}
