@@ -2,7 +2,7 @@
 
 ## 运行
 
-- 参照上级目录  [README](https://github.com/GnohiSiaM/demos/blob/master/java/README.md) 安装 java 和 maven
+- 参照上级目录 [README](https://github.com/GnohiSiaM/demos/blob/master/java/README.md) 安装 java 和 maven
 
 - 启动:
 

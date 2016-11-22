@@ -28,25 +28,25 @@ $ nrm use taobao
 
 1. 编写 `example.js` 文件:
 
-```js
-const http = require('http');
+    ```js
+    const http = require('http');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+    const hostname = '127.0.0.1';
+    const port = 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+    const server = http.createServer((req, res) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'text/plain');
+      res.end('Hello World\n');
+    });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
-```
+    server.listen(port, hostname, () => {
+      console.log(`Server running at http://${hostname}:${port}/`);
+    });
+    ```
 
 2. 运行:
 
-```sh
-node example.js
-```
+    ```sh
+    node example.js
+    ```
