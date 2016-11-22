@@ -8,7 +8,19 @@
     width: 100%;
     background-color: #222;
     box-shadow: 0 -1px 2px #111;
-    font-family: "komika_axisregular";
+}
+#footer h2 {
+    color: #EEEEEE;
+    font-size: 14px;
+    font-weight: normal;
+    width: 200px;
+    left: 50%;
+    margin: 16px 0 0 -380px;
+    position: absolute;
+}
+#footer h2 i {
+    font-style:normal;
+    color:#888;
 }
 #footer>a, #footer>a:visited {
     color: #999999;

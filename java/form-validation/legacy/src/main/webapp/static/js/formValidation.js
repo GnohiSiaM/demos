@@ -15,9 +15,9 @@ function validation(blurOrSubmit) {
     var password = document.getElementById("password");
     var repass = document.getElementById("repass");
     var email = document.getElementById("email");
-    var phone = document.getElementById("phone");
+    var phonenumber = document.getElementById("phonenumber");
     var url = document.getElementById("url");
-    var idCard = document.getElementById("idCard");
+    var idcard = document.getElementById("idcard");
 
     /***************检测是否同意 《使用协议》********************/
     var checkbox = document.getElementById("checkbox");
@@ -85,7 +85,7 @@ function validation(blurOrSubmit) {
         }
     });
 
-    check(phone, "请输入11位手机号码", blurOrSubmit, function(val) {
+    check(phonenumber, "请输入11位手机号码", blurOrSubmit, function(val) {
         if (val.length == 11 && val.match( /^((\(\d{3}\))|(\d{3}\-))?13[0-9]\d{8}|15[0-9]\d{8}|18[0-9]\d{8}$/)) {
             return true;
         } else {
@@ -103,7 +103,7 @@ function validation(blurOrSubmit) {
         }
     });
 
-    check(idCard, "请输入正确的身份证号", blurOrSubmit, function(val) {
+    check(idcard, "请输入正确的身份证号", blurOrSubmit, function(val) {
         if (val.match( /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
             return true;
         } else {
@@ -287,7 +287,7 @@ function getXMLHttpObject() {
 //        //第一个参数：请求的方式 GET/POST
 //        //第二个参数：指定url，对哪个页面发出ajax请求（本质仍是http请求）
 //        //第三个参数：true表示使用异步机制，false表示不使用异步机制
-//        var url="register?name="+name.value ;
+//        var url="RegisterServlet?name="+name.value ;
 //        //打开请求
 //        XHRObject.open("get", url, true);
 //        //发送请求，如果是get请求send()内填null即可;如果是post请求，则填入实际的数据
@@ -311,6 +311,7 @@ function getXMLHttpObject() {
 function checkName(obj, info, blurOrSubmit, func) {
     var tips = getTips(obj);
     var XHRObject = getXMLHttpObject();
+    var url = "";
     var isNameAvailable = null;
     obj.onfocus = function() {
         tips.className = "tips status2";
@@ -324,12 +325,14 @@ function checkName(obj, info, blurOrSubmit, func) {
         tips.innerHTML = "用户名验证中...";
         isNameAvailable = func(obj.value);
 
-        XHRObject.open("get", "checkName?name="+obj.value, true);
-        XHRObject.setRequestHeader("If-Modified-Since", "0"); //解决IE下Ajax缓存问题
-        XHRObject.send();
-        // XHRObject.open("post", "checkName", true);
-        // XHRObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        // XHRObject.send("name=" + obj.value );
+        //url="CheckNameServlet?name="+obj.value ;
+        //XHRObject.open("get", url, true);
+        //XHRObject.setRequestHeader("If-Modified-Since", "0"); //解决IE下Ajax缓存问题
+        //XHRObject.send();
+        url="CheckNameServlet";
+        XHRObject.open("post", url, true);
+        XHRObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        XHRObject.send("name=" + obj.value );
         XHRObject.onreadystatechange = function() {
             if (XHRObject.readyState != 4 || XHRObject.status != 200) {
                 return;
@@ -352,7 +355,7 @@ function checkName(obj, info, blurOrSubmit, func) {
             }
         }
     }
-    if (blurOrSubmit == "Submit") {
+    if (blurOrSubmit == "Submit"){
         obj.onblur();
     }
 }//#end  checkName();

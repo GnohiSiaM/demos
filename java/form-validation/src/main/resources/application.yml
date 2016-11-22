@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri:
+        mongodb://localhost/form-validation
+
+  mvc:
+    view:
+      prefix:
+        /
+
+      suffix:
+        .jsp

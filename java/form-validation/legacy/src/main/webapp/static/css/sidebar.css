@@ -25,7 +25,7 @@
     box-shadow: 1px -3px 9px -6px #222;
     z-index: 333;
     line-height: 1.6;
-    font: 14px/1.5 "komika_axisregular";
+    font: 14px/1.5 "Microsoft Yahei";
 }
 .sidebar:after {
     content: "";
@@ -76,7 +76,6 @@
     text-align: center;
     color: #fff;
     padding: 10px 0;
-    font-weight: bold;
 }
 .quick_nav {
     list-style: none outside none;

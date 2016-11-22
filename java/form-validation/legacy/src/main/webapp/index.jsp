@@ -133,12 +133,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="topbar">
                 <a href="index.jsp" title="GnohiSiaM" class="site">GnohiS<b>iaM</b></a>
                 <ul class="main_nav">
-                    <li><a href="#" class="active">index</a></li>
-                    <li><a href="register.jsp">register</a></li>
-                    <li><a href="registerH5.jsp">register H5</a></li>
-                    <li><a href="agreement.jsp">agreement</a></li>
-                    <li><a href="404.jsp">404</a></li>
-                    <li><a href="login.jsp">login</a></li>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="formValidation.jsp">注册(JS)</a></li>
+                    <li><a href="testHTML5.jsp">注册(HTML5)</a></li>
+                    <li><a href="404.jsp">404页面</a></li>
+                    <li><a href="agreement.jsp">协议</a></li>
+                    <li><a href="banner.jsp">海报墙</a></li>
+                    <li><a href="login.jsp">登陆</a></li>
                 </ul>
             </div>
         </div>
@@ -149,16 +150,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <a href="index.jsp" rel="home">
                     <img class="logo" src="static/image/inter.jpg" alt="logo">
                 </a>
-
-                <span class="slogan">Inspiration is all around<br><strong style="color:black;">${name}</strong><br>keep it safe.</span>
+                <span class="slogan">请对我残酷些<br>-= <strong style="color:black;">${name}</strong> =-<br>他朝我走得坚壮些</span>
             </header>
             <section>
                 <ul class="quick_nav">
-                    <li><a href="register.jsp" target="_blank">register</a></li>
-                    <li><a href="registerH5.jsp">register H5</a></li>
+                    <li><a href="404.jsp">Java编程思想</a></li>
+                    <li><a href="404.jsp">数据与计算机通信</a></li>
+                    <li><a href="404.jsp">现代操作系统</a></li>
+                    <li><a href="formValidation.jsp" target="_blank">formValidation</a></li>
+                    <li><a href="testHTML5.jsp">testHTML5</a></li>
                     <li><a href="agreement.jsp">agreement</a></li>
-                    <li><a href="404.jsp">404</a></li>
-                    <li><a href="login.jsp">login</a></li>
+                    <li><a href="banner.jsp">banner</a></li>
+                    <li><a href="login.jsp">Login</a></li>
                 </ul>
             </section>
         </aside>
@@ -194,7 +197,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <script>
             $(function() {    //$(document).ready()的简写
                 if ('${name}' != '') {
-                    $('[href="login.jsp"]').text('退出').attr('href','logout');
+                    $('[href="login.jsp"]').text('退出').attr('href','LogoutServlet');
                 }
             });
         </script>
