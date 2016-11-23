@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
 
   <body>
-      <form action="SupSaveServlet" method="post">
+      <form action="supermarket/save" method="post">
         <center>
          <div class="wrapper">
             <div><span class="text">商场编号：</span><input class="mac" type="text" name="sNumber"/></div>

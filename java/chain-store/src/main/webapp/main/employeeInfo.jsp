@@ -26,19 +26,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }
     </style>
     <script type="text/javascript">
-        function confirmDel() {
-            if ( confirm("！！是否确认删除！！") ) {
-                return true;
-            } else {
-                return false;
-            }
-        }
         function isAll() {
                 if ('${dNumber}'=='all') {
                     document.getElementById("all").innerHTML = '';
                     document.getElementById("MInfo").outerHTML = '';
                 }
-                if ('${MInfo.eName}'=='') {
+                if ('${MInfo.getEName()}'=='') {
                     document.getElementById("MInfo").outerHTML = '';
                 }
             }
@@ -47,60 +40,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <body onload="isAll()">
    <center>
-      <div class="tittle">${dName }的员工信息</div>
-      <div class="tittleII" id="MInfo">经理：${MInfo.eName } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 入职时间：${MInfo.startTime }</div>
+      <div class="tittle">${dName}的员工信息</div>
+      <div class="tittleII" id="MInfo">经理：${MInfo.getEName()} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 入职时间：${MInfo.getStartTime()}</div>
       <ul class="list">
           <li class="bgstart">
-                <span class="n1">员工编号</span>
-                <span class="n2">姓名</span>
-                <span class="n3I">岗位</span>
-                <span class="n3II">电话号码</span>
-                <span class="n4">工资</span>
-        </li>
-           <c:forEach items="${eInfo}" var="empInfo" varStatus="status" >
-            <c:if test="${status.index % 2 == 0}">
-                <li class="odd">
-                    <a>
-                        <span class="n1">${empInfo.eNumber}</span>
-                        <span class="n2">${empInfo.eName}</span>
-                        <span class="n3I">${empInfo.ePosition}</span>
-                        <span class="n3II">${empInfo.ePhoneNumber}</span>
-                        <span class="n4">${empInfo.eSalary}</span>
-                    </a>
-                    <a href="EmpEditServlet?eNumber=${empInfo.eNumber}">
-                        <img class="edit" src="image/edit.png"/>
-                    </a>
-                    <a href="EmpDeleteServlet?eNumber=${empInfo.eNumber}" onclick="return confirmDel()">
-                        <img class="delete" src="image/delete.png"/>
-                    </a>
-                </li>
-            </c:if>
-
-            <c:if test="${status.index % 2 == 1}">
-                <li class="even">
-                    <a>
-                        <span class="n1">${empInfo.eNumber}</span>
-                        <span class="n2">${empInfo.eName}</span>
-                        <span class="n3I">${empInfo.ePosition}</span>
-                        <span class="n3II">${empInfo.ePhoneNumber}</span>
-                        <span class="n4">${empInfo.eSalary}</span>
-                    </a>
-                    <a href="EmpEditServlet?eNumber=${empInfo.eNumber}">
-                        <img class="edit" src="image/edit.png"/>
-                    </a>
-                    <a href="EmpDeleteServlet?eNumber=${empInfo.eNumber}" onclick="return confirmDel()">
-                        <img class="delete" src="image/delete.png"/>
-                    </a>
-                </li>
-            </c:if>
-        </c:forEach>
+              <span class="n1">员工编号</span>
+              <span class="n2">姓名</span>
+              <span class="n3I">岗位</span>
+              <span class="n3II">电话号码</span>
+              <span class="n4">工资</span>
+          </li>
+          <c:forEach items="${eInfo}" var="employee" varStatus="status" >
+            <c:if test="${status.index % 2 == 0}"><li class="odd"></c:if>
+            <c:if test="${status.index % 2 == 1}"><li class="even"></c:if>
+                <a>
+                    <span class="n1">${employee.getENumber()}</span>
+                    <span class="n2">${employee.getEName()}</span>
+                    <span class="n3I">${employee.getEPosition()}</span>
+                    <span class="n3II">${employee.getEPhoneNumber()}</span>
+                    <span class="n4">${employee.getESalary()}</span>
+                </a>
+                <a href="employee/update?eNumber=${employee.getENumber()}">
+                    <img class="edit" src="image/edit.png"/>
+                </a>
+                <a href="employee/delete?eNumber=${employee.getENumber()}" onclick="return confirm('是否确认删除')">
+                    <img class="delete" src="image/delete.png"/>
+                </a>
+            </li>
+          </c:forEach>
         <li class="bgend"></li>
      </ul>
      <div id="all">
          <a href="main/employeeSave.jsp">
              <button class="modern socle" style="margin-left:30px;" type="button">添加员工</button>
          </a>
-         <a href="DepInfoServlet?sNumber=${sNumber}&sName=${sName}">
+         <a href="department/info?sNumber=${sNumber}&sName=${sName}">
              <button class="modern socle" type="button">上一级</button>
          </a>
      </div>

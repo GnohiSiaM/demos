@@ -19,22 +19,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
 
   <body>
-      <form action="DepEditServlet" method="post">
+      <form action="department/update" method="post">
         <center>
-         <div class="wrapper">
-            <div><span class="text">部门编号：</span><input class="mac" style="color:#BD7D7D" readonly type="text" name="dNumber" value="${department.dNumber }"/></div>
-            <div><span class="text">部门名称：</span><input class="mac" type="text" name="dName" value="${department.dName }"/></div>
-            <div><span class="text">位置分布：</span><input class="mac" type="text" name="dLocation" value="${department.dLocation }"/></div>
-            <div><span class="text">联系电话：</span><input class="mac" type="text" name="dPhoneNumber" value="${department.dPhoneNumber }"/></div>
+          <div class="wrapper">
+            <div>
+                <span class="text">部门编号：</span>
+                <input class="mac" style="color:#BD7D7D" readonly type="text" name="dNumber" value="${department.getDNumber()}"/>
+            </div>
+            <div>
+                <span class="text">部门名称：</span>
+                <input class="mac" type="text" name="dName" value="${department.getDName()}"/>
+            </div>
+            <div>
+                <span class="text">位置分布：</span>
+                <input class="mac" type="text" name="dLocation" value="${department.getDLocation()}"/>
+            </div>
+            <div>
+                <span class="text">联系电话：</span>
+                <input class="mac" type="text" name="dPhoneNumber" value="${department.getDPhoneNumber()}"/>
+            </div>
             <div>
                 <span class="text">所属商场编号：</span>
-                <input class="mac" type="text" style="color:#BD7D7D" readonly name="sNumber" value="${department.sNumber }"/>
+                <input class="mac" type="text" style="color:#BD7D7D" readonly name="sNumber" value="${department.getSNumber()}"/>
             </div>
 
             <button class="modern socle" style="margin-left:30px;" type="submit">确定</button>
             <button class="modern socle" onclick="history.go(-1)" type="button">返回</button>
-         </div>
-       </center>
+          </div>
+        </center>
       </form>
   </body>
 </html>

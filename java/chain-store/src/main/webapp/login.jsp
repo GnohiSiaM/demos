@@ -53,12 +53,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
 
   <body>
-      <form action="LoginServlet" method="post">
+      <form action="login" method="post">
         <center style="margin-top:170px">
           <div class="wrapper">
             <h1 style="color:#9C7B87; text-shadow:0 -1px 1px rgba(0,0,0,0.7);">连锁商场管理系统</h1>
-            <div class="text">账号 : <input class="mac" name="userName" type="text"/></div>
-            <div class="text">密码 : <input class="mac" name="userPassword" type="password"/></div>
+            <div class="text">账号 : <input class="mac" name="name" type="text"/></div>
+            <div class="text">密码 : <input class="mac" name="password" type="password"/></div>
             <button class="modern socle" type="submit">Login</button>
             <button class="modern socle" type="reset" style="margin-left:30px">Reset</button>
             <h2 style="color:#fe6673">${msg}</h2>

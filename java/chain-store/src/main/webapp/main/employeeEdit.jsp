@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script>
         function checkSex() {
             var obj = document.getElementById("sex");
-            if ('${employee.eSex }'=='女' ) {
+            if ('${employee.getESex()}'=='女' ) {
                 obj.innerHTML='<option value="女">女 性</option><option value="男">男 性</option>';
             }
         }
@@ -28,15 +28,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
 
   <body onLoad="checkSex()">
-      <form action="EmpEditServlet" method="post">
+      <form action="employee/update" method="post">
         <center>
          <div class="wrapper">
-            <div><span class="text">员工编号：</span><input class="mac" style="color:#BD7D7D" type="text" readonly name="eNumber" value="${employee.eNumber }"/></div>
-            <div><span class="text">姓 名：</span><input class="mac" type="text" name="eName" value="${employee.eName }"/></div>
-            <div><span class="text">岗 位：</span><input class="mac" type="text" name="ePosition" value="${employee.ePosition }"/></div>
-            <div><span class="text">电话号码：</span><input class="mac" type="text" name="ePhoneNumber" value="${employee.ePhoneNumber }"/></div>
-            <div><span class="text">工 资：</span><input class="mac" type="text" name="eSalary" value="${employee.eSalary }"/></div>
-            <div><span class="text">年 龄：</span><input class="mac" type="text" name="eAge" value="${employee.eAge }"/></div>
+            <div><span class="text">员工编号：</span><input class="mac" style="color:#BD7D7D" type="text" readonly name="eNumber" value="${employee.getENumber()}"/></div>
+            <div><span class="text">姓 名：</span><input class="mac" type="text" name="eName" value="${employee.getEName()}"/></div>
+            <div><span class="text">岗 位：</span><input class="mac" type="text" name="ePosition" value="${employee.getEPosition()}"/></div>
+            <div><span class="text">电话号码：</span><input class="mac" type="text" name="ePhoneNumber" value="${employee.getEPhoneNumber()}"/></div>
+            <div><span class="text">工 资：</span><input class="mac" type="text" name="eSalary" value="${employee.getESalary()}"/></div>
+            <div><span class="text">年 龄：</span><input class="mac" type="text" name="eAge" value="${employee.getEAge()}"/></div>
             <div><span class="text">性 别：</span>
                 <select id="sex" class="mac" name="eSex">
                     <option value="男">男 性</option>
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div>
                 <span class="text">所属部门编号：</span>
-                <input class="mac" type="text" style="color:#BD7D7D" readonly name="dNumber" value="${employee.dNumber }"/>
+                <input class="mac" type="text" style="color:#BD7D7D" readonly name="dNumber" value="${employee.getDNumber()}"/>
             </div>
 
             <button class="modern socle" style="margin-left:30px;" type="submit">确定</button>

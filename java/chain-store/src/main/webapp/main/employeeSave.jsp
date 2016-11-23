@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
 
   <body>
-      <form action="EmpSaveServlet" method="post">
+      <form action="employee/save" method="post">
         <center>
          <div class="wrapper">
             <div><span class="text">员工编号：</span><input class="mac" type="text" name="eNumber"/></div>
@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div>
                 <span class="text">所属部门编号：</span>
-                <input class="mac" type="text" style="color:#BD7D7D" readonly name="dNumber" value="${dNumber }"/>
+                <input class="mac" type="text" style="color:#BD7D7D" readonly name="dNumber" value="${dNumber}"/>
             </div>
 
             <button class="modern socle" style="margin-left:30px;" type="submit">确定</button>

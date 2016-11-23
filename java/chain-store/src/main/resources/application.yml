@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri:
+        mongodb://localhost/chain-store
+
+  mvc:
+    view:
+      prefix:
+        /
+
+      suffix:
+        .jsp

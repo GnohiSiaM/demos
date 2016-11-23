@@ -18,15 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" type="text/css" href="css/button.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
     <script>
-        function getXMLHttpObject() {    //(ajax)获取XMLHttpRequest对象方法(解决浏览器兼容性问题)
-            var xmlhttp;
-            if (window.XMLHttpRequest) {        // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp=new XMLHttpRequest();
-            }
-            else{                            // code for IE6, IE5
-                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            return xmlhttp;
+        function getXMLHttpObject() {
+            return window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
         }
 
         function $(Id) {        //一个简化获取控件的函数
@@ -42,14 +35,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }
 
         function showDepartment() {        //通过商场获取部门
-            var XMLHttpRequestObj = getXMLHttpObject();
-            if (XMLHttpRequestObj) {
-                var url = "ManSaveServlet?sNumber="+$("sup").value;
-                XMLHttpRequestObj.open("get",url,true);
-                XMLHttpRequestObj.send();
-                XMLHttpRequestObj.onreadystatechange =function() {
-                    if (XMLHttpRequestObj.readyState == 4 && XMLHttpRequestObj.status == 200) {
-                        var jsonObj = eval("("+XMLHttpRequestObj.responseText+")");
+            var XHRObject = getXMLHttpObject();
+            if (XHRObject) {
+                var url = "manager/save?sNumber="+$("sup").value;
+                XHRObject.open("get",url,true);
+                XHRObject.send();
+                XHRObject.onreadystatechange =function() {
+                    if (XHRObject.readyState == 4 && XHRObject.status == 200) {
+                        var jsonObj = eval("("+XHRObject.responseText+")");
                         makeDefaultOption( $("dep") );
                         makeDefaultOption( $("emp") );
                         for(var i=0;i<jsonObj.length;i++) {
@@ -64,14 +57,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }
 
         function showEmployee() {        //通过部门获取员工
-            var XMLHttpRequestObj = getXMLHttpObject();
-            if (XMLHttpRequestObj) {
-                var url = "ManSaveServlet?dNumber="+$("dep").value;
-                XMLHttpRequestObj.open("get",url,true);
-                XMLHttpRequestObj.send();
-                XMLHttpRequestObj.onreadystatechange =function() {
-                    if (XMLHttpRequestObj.readyState == 4 && XMLHttpRequestObj.status == 200) {
-                        var jsonObj = eval("("+XMLHttpRequestObj.responseText+")");
+            var XHRObject = getXMLHttpObject();
+            if (XHRObject) {
+                var url = "manager/save?dNumber="+$("dep").value;
+                XHRObject.open("get",url,true);
+                XHRObject.send();
+                XHRObject.onreadystatechange =function() {
+                    if (XHRObject.readyState == 4 && XHRObject.status == 200) {
+                        var jsonObj = eval("("+XHRObject.responseText+")");
                         makeDefaultOption( $("emp") );
                         for(var i=0;i<jsonObj.length;i++) {
                             var option = document.createElement("option");
@@ -88,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
 
   <body>
-      <form action="ManSaveServlet" method="post">
+      <form action="manager/save" method="post">
         <center>
          <div class="wrapper" style="margin-top:180px">
             <div  style="color:#929292; font-size:28;">-=请选择部门经理=-</div><br/>
