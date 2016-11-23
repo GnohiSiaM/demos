@@ -1,0 +1,204 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebUI.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="keywords" content="GnohiSiaM,hellomonday" />
+    <meta http-equiv="description" content="you are my girl" />
+    <meta name="author" content="hello_monday" />
+    <link rel="Icon" href="/Images/apple.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="/Images/apple.ico" type="image/x-icon" />
+    <link href="/Styles/footer.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/rocket.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/topbar.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/sidebar.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        *
+        {
+            /*font-family: Microsoft Yahei;*/
+        }
+        h1
+        {
+            color: #5E5E5E;
+            text-shadow: -1px 3px 10px #8D8D8D;
+            text-align: center;
+            letter-spacing: 9px;
+            margin-bottom: 5px;
+        }
+        .linkDiv
+        {
+            width: 46%;
+            height: 100px;
+            border-radius: 5px;
+            box-shadow: 0 0 6px #222;
+            margin: 14px 2%;
+            float: left;
+            overflow: hidden;
+            background: #eee url(/Images/bg.png);
+            transition: box-shadow .6s;
+            -o-transition: box-shadow .6s;
+            -moz-transition: box-shadow .6s;
+            -webkit-transition: box-shadow .6s;
+        }
+        .linkDiv:hover
+        {
+            box-shadow: 0 0 16px #222;
+        }
+        .linkDiv a
+        {
+            text-align: center;
+            padding-top: 30px;
+            font-weight: bold;
+            text-shadow: 0 0 3px #A2A2A2;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: #6688F1;
+            font-size: 28px;
+        }
+        .linkDiv a:active
+        {
+            color: #154C92;
+            text-shadow: 0 0 8px #3F3F3F;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="wapper">
+        <!-- ***********顶部logo什么的***********  -->
+        <div id="topbox">
+            <a href="#" class="GnohiSiaM">XiDian<abbr title="Community Health Services System">CHSS</abbr></a>
+        </div>
+        <!-- ***********顶栏***********  -->
+        <div id="wrap_topbar" class="wrap_topbar">
+            <div class="topbar">
+                <a href="#" class="site">XiDian<abbr title="Community Health Services System">CHSS</abbr></a>
+                <ul class="main_nav">
+                    <li><a href="/WebForms/Index.aspx" class="active">首页</a></li>
+                    <li><a href="/WebForms/ResourceManagement.aspx">资源管理</a></li>
+                    <li><a href="/WebForms/CParameter/List.aspx">参数设置</a></li>
+                    <li><a href="/WebForms/AuthorityManagement.aspx">权限管理</a></li>
+                    <!--<li><a href="/WebForms/Register.aspx">注册</a></li>-->
+                    <li><a href="/WebForms/Login.aspx">登陆</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- ***********侧边栏********** -->
+        <aside id="sidebar" class="sidebar">
+		    <header>
+			    <a href="#" rel="home">
+				    <img class="logo" src="/Images/inter.jpg" alt="logo"/>
+			    </a>
+			    <span class="slogan">
+                    <span id="time">时 间</span><br/>
+                    -=
+                    <asp:Label ID="text" runat="server" Text="" style="color:black; font-weight:bold;"></asp:Label>
+                    =-
+                    <br/>社区医疗服务系统
+                </span>
+		    </header>
+		    <section>
+		        <ul class="quick_nav">
+                    <asp:ContentPlaceHolder ID="SidebarContent" runat="server">
+				        <li><a href="/WebForms/ResourceManagement.aspx">资源管理</a></li>
+				        <li><a href="/WebForms/CParameter/List.aspx">参数设置</a></li>
+				        <li><a href="/WebForms/AuthorityManagement.aspx">权限管理</a></li>
+                        <li><a href="/WebForms/Register.aspx">Register</a></li>
+                    </asp:ContentPlaceHolder>
+                    <li><a href="/WebForms/Login.aspx">Login</a></li>
+			    </ul>
+		    </section>
+	    </aside>
+        <script type="text/javascript">
+            var timeObj = document.getElementById('time');
+            function startTime() {
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                timeObj.innerHTML = h + " : " + m + " : " + s;
+                t = setTimeout('startTime()', 500);
+            }
+            startTime();
+
+            if (document.getElementById('text').innerHTML == '') {
+                alert("请先登录再操作！");
+                window.location.href = "/WebForms/Login.aspx";
+            }
+        </script>
+        <!-- ***********控制侧边栏及顶栏的位置*********** -->
+        <script type="text/javascript">
+            $(function () {	//$(document).ready()的简写
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() > 120) {
+                        $('#wrap_topbar').addClass('wrap_topbar_fixed');
+                        $('#sidebar').addClass('sidebar_fixed');
+                    } else {
+                        $('#wrap_topbar').removeClass('wrap_topbar_fixed');
+                        $('#sidebar').removeClass('sidebar_fixed');
+                    }
+                })
+            });
+        </script>
+        <!-- *********判断是否已登录********* -->
+        <script type="text/javascript">
+            $(function () {	//$(document).ready()的简写
+                if ($('#text').text() != '') {
+                    $('[href="/WebForms/Login.aspx"]').text('退出').attr('href', '/WebForms/Logout.aspx');
+                }
+            });
+        </script>
+        <!-- *********子页面(主体内容)********* -->
+        <form runat="server">
+        <div class="mybox">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <div style="clear: both;">
+            </div>
+        </div>
+        </form>
+        <!-- push 是用来给footer占位的-->
+        <div class="push" style="height: 46px;">
+        </div>
+    </div>
+    <!-- ***********底栏*********** -->
+    <footer id="footer">
+	    <h2><i>Author :</i> DZ - hello_monday</h2>
+	    <a href="/WebForms/404.aspx">Welcome to <i>XiDian<abbr title="Community Health Services System">CHSS</abbr></i> , enjoy yourself ..</a>
+    </footer>
+    <!-- ***********回到顶部--小火箭***********  -->
+    <div id="back_to_top" title="back to top">
+        <svg class="rocket" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="32" height="32" viewbox="0 0 32 32">
+		    <path fill="#A2A2A2" d="M9.508 29.049c0 0-0.295-1.772 1.525-3.936-1.771-4.968-2.017-9.493-2.017-9.493s-3.64 0.837-3.64 4.427c0.001 6.148 
+			    4.132 9.002 4.132 9.002zM19.541 26.891c0 0 2.438-7.824 2.438-11.069 0-1.46-0.165-2.759-0.421-3.939h-11.106c-0.258 1.18-0.424 2.48-0.424 
+			    3.94 0 3.196 2.431 11.068 2.431 11.068h7.082zM16.009 13.672c1.249 0 2.262 1.013 2.262 2.263 0 1.249-1.013 2.263-2.262 2.263-1.25 
+			    0-2.263-1.013-2.263-2.263-0.001-1.25 1.013-2.263 2.263-2.263zM16.495 3.567v-3.081h-0.881v3.002c-1.007 0.733-3.731 3.063-4.963 
+			    7.552h10.71c-1.191-4.366-3.784-6.671-4.866-7.474zM22.492 29.049c0 0 4.132-2.854 4.132-9.002 0-3.59-3.64-4.427-3.64-4.427s-0.246 4.524-2.016 
+			    9.493c1.82 2.165 1.525 3.936 1.525 3.936zM14.511 29.504l0.738-0.738 0.786 2.46 0.935-2.46 0.639 1.278 0.935-2.312h-5.066l1.031 1.772z"></path>
+	    </svg>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $backToTop = $('#back_to_top');
+            // Show or hide the sticky footer button
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 300) {
+                    $backToTop.fadeIn(800);
+                } else {
+                    $backToTop.fadeOut(800);
+                }
+            });
+            // Animate the scroll to top
+            $backToTop.click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: 0 }, 320, 'swing');
+            })
+        });
+    </script>
+</body>
+</html>

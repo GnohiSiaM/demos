@@ -1,0 +1,83 @@
+﻿.keyDiv
+{
+    margin-top: -12px;
+    float: right;
+}
+.keyWord
+{
+    border-radius: 5px;
+    border: 1px solid #7DB5F1;
+    padding-left: 12px;
+    height: 26px;
+    display: inline-block;
+    box-shadow: 0 0 8px #9BC9FA;
+}
+.mybox div tr
+{
+    height: 32px;
+    color: #3F3F3F;
+}
+.mybox div th
+{
+    border: none;
+    background: #5E5E5E;
+    color: #F0F0F0;
+}
+.mybox div th:last-child
+{
+    border-top-right-radius: 6px;
+}
+.mybox div th:first-child
+{
+    border-top-left-radius: 6px;
+}
+.mybox div tr:nth-child(2n-1) > td
+{
+    background: #CECECE;
+    border: none;
+}
+.mybox div tr:nth-child(2n) > td
+{
+    background: #F0F0F0;
+    border: none;
+}
+.mybox div tr table tr
+{
+    height: 25px;
+    text-align: center;
+}
+.mybox div tr table tr td
+{
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    box-shadow: 0 0 5px #555;
+    border-radius: 50%;
+    background: #7CB6FF !important;
+    color: #fff;
+    text-decoration: none;
+}
+
+.mybox a
+{
+    text-decoration: none;
+    color: #6688F1;
+    font-weight: bold;
+    text-shadow: 0 0 3px #A2A2A2;
+}
+.mybox a:active
+{
+    color: #154C92;
+    text-shadow: 0 0 8px #3F3F3F;
+}
+.mybox table table td a
+{
+    color: #FFFFFF;
+    text-shadow: 0 0 3px #222;
+}
+.mybox table table td span
+{
+    color: #1243BE;
+    font-weight: bold;
+    text-shadow: 0 0 3px #FFF;
+}

@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*---------------------*/
+.wrap_topbar_fixed {
+    position: fixed !important;
+    top: 0 !important;
+}
+/*---------------------*/
+
+.wrap_topbar {
+    position: absolute;
+    top: 120px;
+    background-color: #333;
+    box-shadow: 0px 1px 7px #222;
+    height: 40px;
+    width: 100%;
+    z-index: 9;
+}
+.topbar {
+    position: absolute;
+    max-width: 1200px;
+    left: 100px;
+    right: auto;
+}
+.topbar a {
+    display: block;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0px 0px 6px #000;
+    text-decoration: none;
+}
+.topbar .active {
+    color: #ccc !important;
+}
+.site {
+    font-size: 23px;
+    padding: 0 !important;
+    width: 160px;
+    text-align: center;
+    font-family: arial;
+    float: left;
+}
+.site abbr {
+    color: firebrick;
+    font-size: 1.2em;
+    text-shadow: 0px 0px 6px #500;
+}
+.main_nav {
+    clear: none;
+    font-size: 16px;
+    float: left;
+    display: block;
+    border: none;
+    list-style: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+.main_nav li {
+    list-style: none outside none;
+    float: left;
+}
+.main_nav li:hover {
+    background: #51A7E0;
+    border-radius: 2px;
+    box-shadow: inset 0px 0px 2px #000;
+}
+
+/*当屏幕尺寸小于800px时，应用下面的CSS样式*/
+@media screen and (max-width: 800px) {
+    .site {
+        height: 46px !important;
+        line-height: 46px !important;
+        background: #3C3C3C;
+        box-shadow: 0px 1px 7px #222;
+        border-radius: 0 0 4px 4px;
+    }
+    .site abbr{
+        display: inline-block;
+        animation: flipper 3s ease-in 2s infinite;
+        -webkit-animation: flipper 3s ease-in 2s infinite;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+    }
+    @-webkit-keyframes flipper {
+        0% {-webkit-transform: perspective(300px) rotateY(0deg);}
+        60%,100% {-webkit-transform: perspective(300px) rotateY(360deg);}
+    }
+    @keyframes flipper {
+        0% {transform: perspective(300px) rotateY(0deg);}
+        60%,100% {transform: perspective(300px) rotateY(360deg);}
+    }
+    .main_nav {
+        position: absolute;
+        list-style: none;
+        text-align: center;
+        width: 160px;
+        left: 50%;
+        margin-left: -80px;
+        top: 30px;
+        font: bold 15px 'Open Sans Condensed', sans-serif !important;
+
+        /* This is important for the show/hide CSS animation */
+        max-height: 0px;
+        overflow: hidden;
+
+        -webkit-transition: max-height 0.5s linear;
+        -moz-transition: max-height 0.5s linear;
+        transition: max-height 0.5s linear;
+    }
+    .main_nav li{
+        padding: 0;
+        background-color: #3C3C3C;
+        float: none;
+    }
+    .main_nav li a{
+        color: #fff !important;
+        text-decoration: none !important;
+        display: block;
+    }
+    .main_nav li:nth-child(odd){ /* zebra stripes */
+        background-color: #2C2C2C;
+    }
+    .main_nav li:hover{
+        background-color: #51A7E0
+    }
+    .main_nav li:first-child{
+        border-radius: 3px 3px 0 0;
+        margin-top: 25px;
+        position: relative;
+    }
+    .main_nav li:first-child:before{ /* the pointer tip */
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        border: 5px solid transparent;
+        border-bottom-color: #313131;
+        left: 50%;
+        top: -10px;
+        margin-left: -5px;
+    }
+    .main_nav li:last-child{
+        border-radius: 0 0 3px 3px;
+    }
+    .main_nav ul li:only-child{
+        border-radius: 3px;
+    }
+    /* This will trigger the CSS */
+    /* transition animation on hover */
+
+    .topbar:hover .main_nav{
+        max-height: 380px; /* Increase when adding more dropdown items */
+    }
+}
