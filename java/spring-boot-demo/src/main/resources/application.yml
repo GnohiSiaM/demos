@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      uri:
+        mongodb://localhost/spring_boot_demo
+
+test:
+  key: this is a key
+  secret: here is a secret
+  url: url
+  endpoint: localhost
