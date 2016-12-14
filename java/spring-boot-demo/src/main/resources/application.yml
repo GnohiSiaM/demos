@@ -1,11 +1,62 @@
 spring:
   data:
     mongodb:
-      uri:
-        mongodb://localhost/spring_boot_demo
+      uri: mongodb://localhost/spring_boot_demo
+  boot:
+    admin:
+      url: http://localhost:8080
+
+info:
+  app:
+    encoding: ${project.build.sourceEncoding}
+    java:
+      source: ${java.version}
+      target: ${java.version}
+
+#server:
+#  port: 8080
+
+management:
+  security:
+    role: SUPERUSER
+    enabled: true
+  # 可以用 management.contextPath 属性为管理端点设置一个前缀
+  context-path: /endpoints
+  # 如果不想通过HTTP暴露端点，可以将管理端口设置为-1： management.port=-1
+  # 对于基于云的部署，使用默认的HTTP端口暴露管理端点（endpoints）是明智的选择。下属性可以用来改变HTTP端口：
+#  port: 8081
+  # 下属性来定义管理端点使用的地址 (如果端口跟主应用服务器不一样，只能监听一个不同的地址)
+#  address: 127.0.0.1
+
+endpoints:
+  # 全局范围内设置所有端点的sensitive标记
+  sensitive: true
+  # 指定info端点标记为非敏感
+  info:
+    sensitive: false
+  health:
+    sensitive: false
+    # 响应会被缓存一个可配置的时间段以防止端点被用于'拒绝服务'攻击，下属性设置缓存时间（单位为毫秒），默认为1000毫秒
+#    time-to-live: 1000
+  # 可以改变端点的id（使用endpoints.{name}.id）来改变MVC端点的默认资源路径
+  # MVC路径也可以通过配置 endpoints.{name}.path 来单独改变
+  env:
+    id: xxx
+
+# 默认所有端点除了shutdown以外都是开启的，使用endpoints.enabled属性指定可选端点是否启用。如，所有端点除info外都被禁用：
+# endpoints.enabled=false
+# endpoints.info.enabled=true
+
+# 需要在请求的 header 添加:   Authorization : Basic dXNlcjphYmMxMjNf
+# 其中 dXNlcjphYmMxMjNf 是 user:abc123_ 的 base64 编码
+security:
+  user:
+    name: user
+    password: abc123_
 
 test:
-  key: this is a key
-  secret: here is a secret
-  url: url
-  endpoint: localhost
+  prefix: dev
+  key: ${test.prefix} ${random.value}
+  secret: ${test.prefix} ${random.int[1024,65536]}
+  url: ${test.prefix} ${random.long}
+  endpoint: ${test.prefix} xxx

@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Log
 @RestController
 @RequestMapping("books")
@@ -60,11 +62,17 @@ public class BookController {
     }
 
     @GetMapping("search")
-    public Book getBooks(
+    public List getBooks(
             @RequestParam(required = false) String author,
-            @RequestParam(required = false) String name
+            @RequestParam(required = false, defaultValue = "0") float lowPrice,
+            @RequestParam(required = false, defaultValue = "1000") float highPrice
     ) {
-        return service.findBook(name, author);
+        return service.findBook(author, lowPrice, highPrice);
+    }
+
+    @PostMapping("exists")
+    public boolean existsBook(@RequestBody Book book) {
+        return service.existsBook(book);
     }
 
 }
