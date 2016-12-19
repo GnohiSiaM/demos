@@ -1,18 +1,17 @@
 package com.gnohisiam.demo.controller;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
-public class BaseController {
+@ControllerAdvice
+@RestController
+public class GlobalExceptionController {
 
     @ExceptionHandler(Exception.class)
     public String handleAllException(Exception exception) {
-        String message = ExceptionUtils.getFullStackTrace(exception);
-        log.error(message);
-        return message;
+        return ExceptionUtils.getFullStackTrace(exception);
     }
 
 }

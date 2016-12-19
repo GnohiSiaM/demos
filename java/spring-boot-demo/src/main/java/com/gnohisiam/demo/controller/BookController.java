@@ -23,7 +23,7 @@ import com.gnohisiam.demo.service.BookService;
 @Slf4j
 @RestController
 @RequestMapping("books")
-public class BookController extends BaseController {
+public class BookController {
 
     @Autowired
     private BookService service;

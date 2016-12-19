@@ -1,5 +1,7 @@
 package com.gnohisiam.demo.controller;
 
+import java.io.IOException;
+
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import com.gnohisiam.demo.configuration.TestProperties;
 @Slf4j
 @RestController
 @RequestMapping("test")
-public class TestController extends BaseController {
+public class TestController {
 
     @Autowired
     private TestProperties testProperties;
@@ -22,8 +24,8 @@ public class TestController extends BaseController {
     }
 
     @GetMapping("exception")
-    public String testException() {
-        return "" + (1 / 0);
+    public String testException() throws IOException {
+        throw new IOException();
     }
 
 }
