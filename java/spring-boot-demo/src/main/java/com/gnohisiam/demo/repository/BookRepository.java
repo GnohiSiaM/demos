@@ -1,11 +1,11 @@
 package com.gnohisiam.demo.repository;
 
-import com.gnohisiam.demo.model.Book;
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
+import com.gnohisiam.demo.model.Book;
 
 @Repository
 public interface BookRepository extends MongoRepository<Book, String> {
@@ -17,4 +17,5 @@ public interface BookRepository extends MongoRepository<Book, String> {
 
     @Query(value = "{author: ?0}", delete = true)
     void deleteByAuthor(String author);
+
 }

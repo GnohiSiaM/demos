@@ -1,15 +1,15 @@
 package com.gnohisiam.demo.service;
 
-import com.gnohisiam.demo.model.Book;
-import com.gnohisiam.demo.repository.BookRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import com.gnohisiam.demo.model.Book;
+import com.gnohisiam.demo.repository.BookRepository;
 
 @Service
 public class BookService {
@@ -36,7 +36,8 @@ public class BookService {
         repository.deleteByAuthor(id);
     }
 
-    public List findBook(String author, float lowPrice, float highPrice) {
+    public List<Book> findBook(String author, float lowPrice, float highPrice) {
+        //mongoTemplate.getCollection("Book").distinct("author");
         return repository.findByAuthorAndPriceBetweenOrderByPriceAsc(author, lowPrice, highPrice);
     }
 

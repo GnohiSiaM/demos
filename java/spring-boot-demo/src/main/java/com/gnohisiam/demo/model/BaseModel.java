@@ -1,13 +1,14 @@
 package com.gnohisiam.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import java.util.Date;
+
 import lombok.Data;
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
-
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
