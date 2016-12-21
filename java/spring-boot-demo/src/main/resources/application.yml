@@ -54,9 +54,8 @@ security:
     name: user
     password: abc123_
 
-test:
-  prefix: dev
-  key: ${test.prefix} ${random.value}
-  secret: ${test.prefix} ${random.int[1024,65536]}
-  url: ${test.prefix} ${random.long}
-  endpoint: ${test.prefix} xxx
+#test:
+#  key: ${random.long}
+#  secret: ${random.int[1024,65536]}
+#  url: ${deploy.evn}.GnohiSiaM.com
+#  endpoint: ${test.url}${test.prefix}/${random.value}

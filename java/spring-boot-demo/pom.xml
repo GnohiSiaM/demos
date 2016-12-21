@@ -81,8 +81,40 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <deploy.evn>dev</deploy.evn>
+            </properties>
+            <build>
+                <filters>
+                    <filter>./dev.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <deploy.evn>prod</deploy.evn>
+            </properties>
+            <build>
+                <filters>
+                    <filter>./prod.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
+
     <!-- Package as an executable jar -->
     <build>
+        <finalName>GnohiSiaM</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
