@@ -1,3 +1,5 @@
+######### Common application properties #########
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 spring:
   data:
     mongodb:
@@ -53,6 +55,11 @@ security:
   user:
     name: user
     password: abc123_
+
+
+######### Custom properties #########
+schedule:
+  enable: ${schedule.enable}
 
 #test:
 #  key: ${random.long}
