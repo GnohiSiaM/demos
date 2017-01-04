@@ -4,9 +4,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost/spring_boot_demo
-  boot:
-    admin:
-      url: http://localhost:8080
 
 info:
   app:
