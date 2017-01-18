@@ -13,7 +13,7 @@
   <!--但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。-->
   <contextName>${context.name}</contextName>
 
-  <include resource="org/springframework/boot/logging/logback/base.xml"/>
+  <!--<include resource="org/springframework/boot/logging/logback/base.xml"/>-->
 
   <!--<appender> 是负责写日志的组件。有两个必要属性name和class。name指定appender名称，class指定appender的全限定名。-->
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -75,6 +75,7 @@
       <!--level: 来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，还有一个特殊值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前logger将会继承上级的级别。-->
       <!--addtivity: 是否向上级logger传递打印信息。默认是true。-->
   <!--<logger>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个logger。-->
+
   <logger name="org.springframework.web" level="DEBUG"/>
 
   <logger name="com.gnohisiam.demo.AppRunner" level="ERROR">
