@@ -61,7 +61,7 @@
 }
 
 - (UIImage *)getImageWithPeakPower:(CGFloat)peakPower {
-    NSString *imageName = @"RecordingSignal00";
+    NSString *imageName = @"RecordingSignal";
     if (peakPower < 0) {
         return nil;
     } else if (peakPower <= 0.3) {

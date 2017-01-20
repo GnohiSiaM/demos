@@ -1,9 +1,9 @@
 //
 //  main.m
-//  RecorderDemo
+//  recorder
 //
-//  Created by Jim Du on 7/29/15.
-//  Copyright (c) 2015 Jim. All rights reserved.
+//  Created by Jim Du on 1/20/17.
+//  Copyright © 2017 Jim. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

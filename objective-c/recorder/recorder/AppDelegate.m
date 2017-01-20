@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  RecorderDemo
+//  Recorder
 //
 //  Created by Jim Du on 7/29/15.
 //  Copyright (c) 2015 Jim. All rights reserved.
