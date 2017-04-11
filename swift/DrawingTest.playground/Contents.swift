@@ -1,12 +1,3 @@
-//
-//  DrawingTestView.swift
-//  DingyuedianToB
-//
-//  Created by Jim Du on 10/31/15.
-//  Copyright © 2015 augmentum. All rights reserved.
-//
-
-
 
 //    变换（transformation）修改了图形上下文中绘制图形的方式。可以通过移动、旋转或缩放实现变换。
 //    Quartz提供了多种形式的变换，其中主要：CTM（当前变换矩阵）变换和仿射（affine）变换。
